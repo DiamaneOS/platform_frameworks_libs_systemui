@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- bg: light n96 · dark n4 -->
+    <color name="tally_background">@android:color/system_surface_container_lowest_dark</color>
+    <!-- surface: light n99 · dark n10 -->
+    <color name="tally_surface">@android:color/system_surface_container_low_dark</color>
+    <!-- surfaceHigh: light n92 · dark n17 -->
+    <color name="tally_surface_high">@android:color/system_surface_container_high_dark</color>
+    <!-- ink: light n10 · dark n92 -->
+    <color name="tally_ink">@android:color/system_on_surface_dark</color>
+    <!-- muted: light nv38 · dark nv76 -->
+    <color name="tally_ink_muted">@android:color/system_on_surface_variant_dark</color>
+    <!-- outline: light nv50 · dark nv58 -->
+    <color name="tally_outline">@android:color/system_outline_dark</color>
+    <!-- outlineVariant: light nv82 · dark nv28 -->
+    <color name="tally_outline_variant">@android:color/system_outline_variant_dark</color>
+    <!-- accent: light p40 (hue −8° for seeds at 55–110°) · dark p80 -->
+    <color name="tally_accent">@android:color/system_accent1_200</color>
+    <!-- onAccent: light p100 (#FFFFFF) · dark p20 -->
+    <color name="tally_on_accent">@android:color/system_on_primary_dark</color>
+    <!-- error: light e40 · dark e80 -->
+    <color name="tally_error">@android:color/system_error_dark</color>
+    <!-- inverse: light n20 · dark n90 -->
+    <color name="tally_inverse">@android:color/system_inverse_surface_dark</color>
+    <!-- onInverse: light n95 · dark n20 -->
+    <color name="tally_on_inverse">@android:color/system_inverse_on_surface_dark</color>
+    <!-- lampOutline: light p30 · dark the lamp -->
+    <color name="tally_lamp_outline">@android:color/system_primary_fixed_dim</color>
+    <!-- lampInk: light the accent · dark the lamp -->
+    <color name="tally_lamp_ink">@android:color/system_primary_fixed_dim</color>
+    <!-- sensor: light #2F7D41 · dark #72C27C -->
+    <color name="tally_sensor">#72C27C</color>
+    <!-- onSensor: light #FFFFFF · dark #06270F (5.1:1 and 7.5:1 on sensor) -->
+    <color name="tally_on_sensor">#06270F</color>
+    <!-- capture: light #C62828 · dark #FF8A80 -->
+    <color name="tally_capture">#FF8A80</color>
+    <!-- onCapture: light #FFFFFF · dark #3F0707 (5.6:1 and 7.4:1 on capture) -->
+    <color name="tally_on_capture">#3F0707</color>
+    <!-- kcHi: white at 28 % (light) · 18 % (dark) -->
+    <color name="tally_keycap_highlight">#2EFFFFFF</color>
+    <!-- kcLo: black at 18 % (light) · 35 % (dark) -->
+    <color name="tally_keycap_shade">#59000000</color>
+</resources>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- family: sofia-sans -->
+    <string name="tally_font_family" translatable="false">sofia-sans</string>
+    <!-- condensed family: sofia-sans-semi-condensed -->
+    <string name="tally_font_family_condensed" translatable="false">sofia-sans-semi-condensed</string>
+    <!-- base: the family, weight 400 (dark 380) -->
+    <style name="TextAppearance.Tally" parent="">
+        <item name="android:fontFamily">@string/tally_font_family</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    <!-- clock: 118 dp / 118, weight 280, −0.025 em, tabular -->
+    <style name="TextAppearance.Tally.Clock" parent="TextAppearance.Tally">
+        <item name="android:textSize">118dp</item>
+        <item name="android:textFontWeight">280</item>
+        <item name="android:letterSpacing">-0.025</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+    <dimen name="tally_type_clock_line_height">118dp</dimen>
+    <!-- headline: 28 / 34 sp, 500 -->
+    <style name="TextAppearance.Tally.Headline" parent="TextAppearance.Tally">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <dimen name="tally_type_headline_line_height">34sp</dimen>
+    <!-- title: 20 / 26 sp, 500 -->
+    <style name="TextAppearance.Tally.Title" parent="TextAppearance.Tally">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <dimen name="tally_type_title_line_height">26sp</dimen>
+    <!-- item: 16 / 22 sp, 400 (dark 380) -->
+    <style name="TextAppearance.Tally.Item" parent="TextAppearance.Tally">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    <dimen name="tally_type_item_line_height">22sp</dimen>
+    <!-- item emphasis: 16 / 22 sp, 500 -->
+    <style name="TextAppearance.Tally.ItemEmphasis" parent="TextAppearance.Tally">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <dimen name="tally_type_item_emphasis_line_height">22sp</dimen>
+    <!-- body: 14 / 20 sp, 400 (dark 380) -->
+    <style name="TextAppearance.Tally.Body" parent="TextAppearance.Tally">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    <dimen name="tally_type_body_line_height">20sp</dimen>
+    <!-- label: 14 / 20 sp, 500 -->
+    <style name="TextAppearance.Tally.Label" parent="TextAppearance.Tally">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <dimen name="tally_type_label_line_height">20sp</dimen>
+    <!-- readout: 14 / 20 sp, 560, +0.01 em, tabular -->
+    <style name="TextAppearance.Tally.Readout" parent="TextAppearance.Tally">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">560</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+    <dimen name="tally_type_readout_line_height">20sp</dimen>
+    <!-- caption: 12 / 16 sp, 400 (dark 380) -->
+    <style name="TextAppearance.Tally.Caption" parent="TextAppearance.Tally">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    <dimen name="tally_type_caption_line_height">16sp</dimen>
+    <!-- small label: 12 / 16 sp, 500 -->
+    <style name="TextAppearance.Tally.LabelSmall" parent="TextAppearance.Tally">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <dimen name="tally_type_label_small_line_height">16sp</dimen>
+    <!-- small readout: 12 / 16 sp, 500, +0.02 em, tabular -->
+    <style name="TextAppearance.Tally.ReadoutSmall" parent="TextAppearance.Tally">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+    <dimen name="tally_type_readout_small_line_height">16sp</dimen>
+    <!-- section: 11 / 16 sp, 500, +0.06 em, capitals -->
+    <style name="TextAppearance.Tally.Section" parent="TextAppearance.Tally">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <dimen name="tally_type_section_line_height">16sp</dimen>
+    <!-- lock date: 13 / 16 sp, 600, +0.07 em -->
+    <style name="TextAppearance.Tally.LockDate" parent="TextAppearance.Tally">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.07</item>
+    </style>
+    <dimen name="tally_type_lock_date_line_height">16sp</dimen>
+    <!-- status clock: 14 sp, 500 -->
+    <style name="TextAppearance.Tally.StatusClock" parent="TextAppearance.Tally">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+    <dimen name="tally_type_status_clock_line_height">14sp</dimen>
+    <!-- capture chip: 14 sp, 600 -->
+    <style name="TextAppearance.Tally.CaptureChip" parent="TextAppearance.Tally">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+    <dimen name="tally_type_capture_chip_line_height">14sp</dimen>
+</resources>

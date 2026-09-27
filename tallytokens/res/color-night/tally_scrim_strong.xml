@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- scrimStrong: light ink at 60 % (#99) · dark black at 70 % (#B3) -->
+    <item android:color="@android:color/black" android:alpha="0.702" />
+</selector>

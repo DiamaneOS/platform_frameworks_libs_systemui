@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="21dp"
+    android:height="21dp"
+    android:viewportWidth="21"
+    android:viewportHeight="21">
+    <!-- on lamp, 16 dp, drawn in a 21 dp box (the lamp plus the live halo's reach); centre it on the lamp's 16 dp box -->
+    <path
+        android:pathData="M18.5,10.5 A8,8 0 1,1 2.5,10.5 A8,8 0 1,1 18.5,10.5 Z"
+        android:fillColor="@color/tally_accent" />
+</vector>

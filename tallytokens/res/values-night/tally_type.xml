@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- base: dark theme -->
+    <style name="TextAppearance.Tally" parent="">
+        <item name="android:fontFamily">@string/tally_font_family</item>
+        <item name="android:textFontWeight">380</item>
+    </style>
+    <!-- item: dark theme -->
+    <style name="TextAppearance.Tally.Item" parent="TextAppearance.Tally">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">380</item>
+    </style>
+    <!-- body: dark theme -->
+    <style name="TextAppearance.Tally.Body" parent="TextAppearance.Tally">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">380</item>
+    </style>
+    <!-- caption: dark theme -->
+    <style name="TextAppearance.Tally.Caption" parent="TextAppearance.Tally">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">380</item>
+    </style>
+</resources>

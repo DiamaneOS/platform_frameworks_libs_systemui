@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- radius 4: 4 dp -->
+    <dimen name="tally_radius_xs">4dp</dimen>
+    <!-- radius 8: 8 dp -->
+    <dimen name="tally_radius_s">8dp</dimen>
+    <!-- radius 12: 12 dp -->
+    <dimen name="tally_radius_m">12dp</dimen>
+    <!-- radius 20: 20 dp -->
+    <dimen name="tally_radius_l">20dp</dimen>
+    <!-- keycap 22 %: 22 % of the key's side -->
+    <fraction name="tally_keycap_radius">22%</fraction>
+    <!-- keycap mask: a 100 × 100 square with 22-unit circular corners -->
+    <string name="tally_keycap_mask" translatable="false">M22,0 L78,0 A22,22 0 0,1 100,22 L100,78 A22,22 0 0,1 78,100 L22,100 A22,22 0 0,1 0,78 L0,22 A22,22 0 0,1 22,0 Z</string>
+    <!-- hairline: 1 dp -->
+    <dimen name="tally_stroke_hairline">1dp</dimen>
+    <!-- lit edge: 1.5 dp -->
+    <dimen name="tally_stroke_lit_edge">1.5dp</dimen>
+    <!-- control border: 2 dp -->
+    <dimen name="tally_stroke_control">2dp</dimen>
+    <!-- focus ring: 2 dp in the accent, 2 dp clear of the control -->
+    <dimen name="tally_focus_ring_width">2dp</dimen>
+    <!-- focus ring offset: 2 dp -->
+    <dimen name="tally_focus_ring_offset">2dp</dimen>
+</resources>
