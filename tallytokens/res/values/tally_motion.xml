@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- pebble: 1500 / 1.0 -->
+    <item name="tally_spring_pebble_stiffness" format="float" type="dimen">1500.0</item>
+    <item name="tally_spring_pebble_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- stone: 700 / 1.0 -->
+    <item name="tally_spring_stone_stiffness" format="float" type="dimen">700.0</item>
+    <item name="tally_spring_stone_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- slab: 420 / 1.0 -->
+    <item name="tally_spring_slab_stiffness" format="float" type="dimen">420.0</item>
+    <item name="tally_spring_slab_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- fill: 1600 / 1.0 -->
+    <item name="tally_spring_fill_stiffness" format="float" type="dimen">1600.0</item>
+    <item name="tally_spring_fill_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- dim: 700 / 1.0 -->
+    <item name="tally_spring_dim_stiffness" format="float" type="dimen">700.0</item>
+    <item name="tally_spring_dim_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- drain: 160 / 1.0 -->
+    <item name="tally_spring_drain_stiffness" format="float" type="dimen">160.0</item>
+    <item name="tally_spring_drain_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- scroll: 150 / 1.0 -->
+    <item name="tally_spring_scroll_stiffness" format="float" type="dimen">150.0</item>
+    <item name="tally_spring_scroll_damping_ratio" format="float" type="dimen">1.0</item>
+    <!-- commit velocity: 800 dp/s -->
+    <dimen name="tally_motion_commit_velocity">800dp</dimen>
+    <!-- commit projection: 150 ms -->
+    <integer name="tally_motion_commit_projection_ms">150</integer>
+    <!-- earned overshoot from: 400 dp/s -->
+    <dimen name="tally_overshoot_velocity_start">400dp</dimen>
+    <!-- earned overshoot full: 4000 dp/s -->
+    <dimen name="tally_overshoot_velocity_full">4000dp</dimen>
+    <!-- overshoot damping floor: ζ 0.8 -->
+    <item name="tally_overshoot_damping_min" format="float" type="dimen">0.8</item>
+    <!-- overshoot cap: 12 dp or 3 % of the travel, the smaller -->
+    <dimen name="tally_overshoot_cap">12dp</dimen>
+    <!-- overshoot cap fraction: 3 % of the travel -->
+    <item name="tally_overshoot_cap_fraction" format="float" type="dimen">0.03</item>
+    <!-- tap impulse: v0 = 0.6 · √k · distance -->
+    <item name="tally_motion_tap_impulse" format="float" type="dimen">0.6</item>
+    <!-- Calm softening: k × 0.6, no overshoot -->
+    <item name="tally_motion_calm_stiffness_scale" format="float" type="dimen">0.6</item>
+    <!-- rubber band: 0.35 over 48 dp -->
+    <item name="tally_rubber_band_coefficient" format="float" type="dimen">0.35</item>
+    <!-- rubber band range: 48 dp -->
+    <dimen name="tally_rubber_band_range">48dp</dimen>
+    <!-- fling projection: 400 ms -->
+    <integer name="tally_fling_projection_ms">400</integer>
+    <!-- chain stagger: 24 ms per neighbour, at most 4 steps -->
+    <integer name="tally_chain_stagger_ms">24</integer>
+    <!-- chain stagger cap: 4 -->
+    <integer name="tally_chain_stagger_cap">4</integer>
+    <!-- reduced motion: a 120 ms cross-fade -->
+    <integer name="tally_reduced_motion_fade_ms">120</integer>
+    <!-- toast rise: 8 dp on stone -->
+    <dimen name="tally_toast_rise">8dp</dimen>
+    <!-- grid parting: 8 dp on stone -->
+    <dimen name="tally_grid_parting">8dp</dimen>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- requested turn: one turn per 1.6 s -->
+    <integer name="tally_lamp_requested_turn_ms">1600</integer>
+    <!-- still trying: 5 s -->
+    <integer name="tally_lamp_requested_still_ms">5000</integer>
+    <!-- lamp frame rate: at most 60 Hz -->
+    <integer name="tally_lamp_max_fps">60</integer>
+    <!-- toast queue gap: 180 ms -->
+    <integer name="tally_toast_queue_gap_ms">180</integer>
+    <!-- fingerprint hint: 3 s on the first 5 wakes -->
+    <integer name="tally_fp_hint_ms">3000</integer>
+    <!-- fingerprint hint wakes: 5 -->
+    <integer name="tally_fp_hint_wakes">5</integer>
+</resources>

@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 The DiamaneOS Project
+//
+// Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+// repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+// Tally design tokens as Android resources: colours bound to the dynamic-colour roles, shapes,
+// sizes, type, springs, timings and lamp forms. Resources only, no code. SystemUI, Launcher3 and
+// the DiamaneOS overlays add it to their static_libs, as they do with dynamiccolors.
+android_library {
+    name: "tallytokens",
+    sdk_version: "current",
+    min_sdk_version: "31",
+    resource_dirs: ["res"],
+}

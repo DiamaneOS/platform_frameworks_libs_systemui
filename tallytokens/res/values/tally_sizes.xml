@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+-->
+<resources>
+    <!-- space 4: 4 dp -->
+    <dimen name="tally_space_xs">4dp</dimen>
+    <!-- space 8: 8 dp -->
+    <dimen name="tally_space_s">8dp</dimen>
+    <!-- space 12: 12 dp -->
+    <dimen name="tally_space_m">12dp</dimen>
+    <!-- space 16: 16 dp -->
+    <dimen name="tally_space_l">16dp</dimen>
+    <!-- space 20: 20 dp -->
+    <dimen name="tally_space_xl">20dp</dimen>
+    <!-- space 24: 24 dp -->
+    <dimen name="tally_space_xxl">24dp</dimen>
+    <!-- touch target: 48 dp -->
+    <dimen name="tally_target_min">48dp</dimen>
+    <!-- key: 48 dp tall, 20 dp side padding, r8 -->
+    <dimen name="tally_key_height">48dp</dimen>
+    <!-- key padding: 20 dp -->
+    <dimen name="tally_key_padding_horizontal">20dp</dimen>
+    <!-- chip: 32 dp, r8 -->
+    <dimen name="tally_chip_height">32dp</dimen>
+    <!-- tally chip: 40 dp, r8 -->
+    <dimen name="tally_chip_height_large">40dp</dimen>
+    <!-- row: 56 dp minimum -->
+    <dimen name="tally_row_min_height">56dp</dimen>
+    <!-- large tile: 64 dp, r12 -->
+    <dimen name="tally_tile_height_large">64dp</dimen>
+    <!-- small tile: 52 × 52 dp keycap -->
+    <dimen name="tally_tile_size_small">52dp</dimen>
+    <!-- switch: 52 × 32 dp, r8, 2 dp border -->
+    <dimen name="tally_switch_width">52dp</dimen>
+    <!-- switch height: 32 dp -->
+    <dimen name="tally_switch_height">32dp</dimen>
+    <!-- switch thumb: 24 dp, r4 -->
+    <dimen name="tally_switch_thumb">24dp</dimen>
+    <!-- icon: 24 dp -->
+    <dimen name="tally_icon_size">24dp</dimen>
+    <!-- small icon: 16 dp -->
+    <dimen name="tally_icon_size_small">16dp</dimen>
+    <!-- Home key: 56 dp -->
+    <dimen name="tally_keycap_home">56dp</dimen>
+    <!-- dock key: 60 dp -->
+    <dimen name="tally_keycap_dock">60dp</dimen>
+    <!-- All apps key: 52 dp -->
+    <dimen name="tally_keycap_all_apps">52dp</dimen>
+    <!-- lock key: 56 dp, 22 % -->
+    <dimen name="tally_keycap_lock">56dp</dimen>
+    <!-- keycap LED: 10 dp (11 dp on keys of 52 dp and up) -->
+    <dimen name="tally_keycap_led_size">10dp</dimen>
+    <!-- keycap LED large: 11 dp -->
+    <dimen name="tally_keycap_led_size_large">11dp</dimen>
+    <!-- keycap LED housing: 1.75 dp of onLamp around the LED -->
+    <dimen name="tally_keycap_led_housing">1.75dp</dimen>
+    <!-- keycap LED inset: 8 % from the top and end -->
+    <fraction name="tally_keycap_led_inset">8%</fraction>
+    <!-- keycap highlight: 1 dp -->
+    <dimen name="tally_keycap_highlight_height">1dp</dimen>
+    <!-- keycap skirt: 5.5 % of the key (2 % pressed) -->
+    <fraction name="tally_keycap_skirt">5.5%</fraction>
+    <!-- keycap skirt pressed: 2 % -->
+    <fraction name="tally_keycap_skirt_pressed">2%</fraction>
+    <!-- dock skirt: 5 dp (2 dp pressed) -->
+    <dimen name="tally_dock_skirt">5dp</dimen>
+    <!-- dock skirt pressed: 2 dp -->
+    <dimen name="tally_dock_skirt_pressed">2dp</dimen>
+    <!-- privacy chip padding: 6 dp, 4 dp gaps, r8 -->
+    <dimen name="tally_privacy_chip_padding_horizontal">6dp</dimen>
+    <!-- privacy chip gap: 4 dp -->
+    <dimen name="tally_privacy_chip_gap">4dp</dimen>
+    <!-- capture chip padding: 6 dp start, 8 dp end, 4 dp gaps, r8 -->
+    <dimen name="tally_capture_chip_padding_start">6dp</dimen>
+    <!-- capture chip padding end: 8 dp -->
+    <dimen name="tally_capture_chip_padding_end">8dp</dimen>
+    <!-- privacy dot: 16 dp, 16 dp from the top and side -->
+    <dimen name="tally_privacy_dot_size">16dp</dimen>
+    <!-- privacy dot margin: 16 dp -->
+    <dimen name="tally_privacy_dot_margin">16dp</dimen>
+    <!-- toast clearance: 116 dp = a 24 + 80 dp bottom bar + 12 dp -->
+    <dimen name="tally_toast_bottom_clearance">116dp</dimen>
+    <!-- toast top: 112 dp above the canvas bottom -->
+    <dimen name="tally_toast_offset">112dp</dimen>
+    <!-- dialog margin: 24 dp from the screen sides, 20 dp padding, r20 -->
+    <dimen name="tally_dialog_margin">24dp</dimen>
+    <!-- dialog padding: 20 dp (16 dp at the bottom) -->
+    <dimen name="tally_dialog_padding">20dp</dimen>
+    <!-- sheet padding: 16 dp sides, 28 dp bottom, r20 top corners -->
+    <dimen name="tally_sheet_padding_horizontal">16dp</dimen>
+    <!-- sheet bottom padding: 28 dp -->
+    <dimen name="tally_sheet_padding_bottom">28dp</dimen>
+    <!-- lock group gap: 20 dp (8 dp between cards) -->
+    <dimen name="tally_lock_group_gap">20dp</dimen>
+    <!-- lock card gap: 8 dp -->
+    <dimen name="tally_lock_card_gap">8dp</dimen>
+</resources>
