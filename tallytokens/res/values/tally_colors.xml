@@ -5,6 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+  Spec: tokens.json sha256 d2407cf59ae226fdb4cc21fd2e7af5ba2ce55922f7a35ea660f399ebcdfa3916
 -->
 <resources>
     <!-- bg: light n96 · dark n4 -->
@@ -31,9 +32,9 @@
     <color name="tally_inverse">@android:color/system_inverse_surface_light</color>
     <!-- onInverse: light n95 · dark n20 -->
     <color name="tally_on_inverse">@android:color/system_inverse_on_surface_light</color>
-    <!-- lamp: primary hue and chroma at the seed's own tone, held to T74–T82 (Sodium #FBA700, T75); same in light and dark -->
+    <!-- lamp: primary hue and chroma at the seed's own tone, held to T74–T82 (Sodium #FBA700, T75); one colour in light and dark -->
     <color name="tally_lamp">@android:color/system_primary_fixed_dim</color>
-    <!-- onLamp: p10; same in light and dark -->
+    <!-- onLamp: p10; one colour in light and dark -->
     <color name="tally_on_lamp">@android:color/system_accent1_900</color>
     <!-- lampOutline: light p30 · dark the lamp -->
     <color name="tally_lamp_outline">@android:color/system_accent1_700</color>
@@ -47,6 +48,22 @@
     <color name="tally_capture">#C62828</color>
     <!-- onCapture: light #FFFFFF · dark #3F0707 (5.6:1 and 7.4:1 on capture) -->
     <color name="tally_on_capture">#FFFFFF</color>
+    <!-- sensorLight: #2F7D41 (5.1:1 on white, 4.1:1 on black) -->
+    <color name="tally_sensor_light">#2F7D41</color>
+    <!-- sensorDark: #72C27C (9.7:1 on black; 2.2:1 on white, so dark areas only) -->
+    <color name="tally_sensor_dark">#72C27C</color>
+    <!-- onSensorLight: #FFFFFF (5.1:1 on sensorLight) -->
+    <color name="tally_on_sensor_light">#FFFFFF</color>
+    <!-- onSensorDark: #06270F (7.5:1 on sensorDark) -->
+    <color name="tally_on_sensor_dark">#06270F</color>
+    <!-- captureLight: #C62828 (5.6:1 on white, 3.7:1 on black) -->
+    <color name="tally_capture_light">#C62828</color>
+    <!-- captureDark: #FF8A80 (9.2:1 on black; 2.3:1 on white, so dark areas only) -->
+    <color name="tally_capture_dark">#FF8A80</color>
+    <!-- onCaptureLight: #FFFFFF (5.6:1 on captureLight) -->
+    <color name="tally_on_capture_light">#FFFFFF</color>
+    <!-- onCaptureDark: #3F0707 (7.4:1 on captureDark) -->
+    <color name="tally_on_capture_dark">#3F0707</color>
     <!-- kcHi: white at 28 % (light) · 18 % (dark) -->
     <color name="tally_keycap_highlight">#47FFFFFF</color>
     <!-- kcLo: black at 18 % (light) · 35 % (dark) -->

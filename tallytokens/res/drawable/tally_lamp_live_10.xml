@@ -5,6 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+  Spec: tokens.json sha256 d2407cf59ae226fdb4cc21fd2e7af5ba2ce55922f7a35ea660f399ebcdfa3916
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="14dp"
@@ -16,7 +17,7 @@
         android:pathData="M11.25,7 A4.25,4.25 0 1,1 2.75,7 A4.25,4.25 0 1,1 11.25,7 Z"
         android:fillColor="@color/tally_lamp"
         android:strokeColor="@color/tally_lamp_outline"
-        android:strokeWidth="1.275" />
+        android:strokeWidth="1.25" />
     <path
         android:pathData="M13.375,7 A6.375,6.375 0 1,1 0.625,7 A6.375,6.375 0 1,1 13.375,7 Z"
         android:strokeColor="@color/tally_lamp_outline"

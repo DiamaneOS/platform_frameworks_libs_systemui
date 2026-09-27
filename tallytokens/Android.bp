@@ -3,17 +3,19 @@
 //
 // Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
 // repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+// Spec: tokens.json sha256 d2407cf59ae226fdb4cc21fd2e7af5ba2ce55922f7a35ea660f399ebcdfa3916
 
 package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
 // Tally design tokens as Android resources: colours bound to the dynamic-colour roles, shapes,
-// sizes, type, springs, timings and lamp forms. Resources only, no code. SystemUI, Launcher3 and
-// the DiamaneOS overlays add it to their static_libs, as they do with dynamiccolors.
+// sizes, type, springs, timings and lamp forms. Resources only, no code. SystemUI, Launcher3,
+// WindowManager-Shell and Settings add it to their static_libs next to dynamiccolors. Resource
+// overlays and SettingsLib do not link it: they get literal values from the spec's exports.
 android_library {
     name: "tallytokens",
     sdk_version: "current",
-    min_sdk_version: "31",
+    min_sdk_version: "30",
     resource_dirs: ["res"],
 }
