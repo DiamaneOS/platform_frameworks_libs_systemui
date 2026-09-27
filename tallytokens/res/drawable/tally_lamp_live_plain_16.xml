@@ -12,9 +12,12 @@
     android:height="21dp"
     android:viewportWidth="21"
     android:viewportHeight="21">
-    <!-- off lamp, 16 dp, drawn in a 21 dp box (the lamp plus the live halo's reach); centre it on the lamp's 16 dp box -->
+    <!-- live lamp, edge-less for tinting, 16 dp, drawn in a 21 dp box (the lamp plus the live halo's reach); centre it on the lamp's 16 dp box -->
     <path
-        android:pathData="M17.357,10.5 A6.857,6.857 0 1,1 3.643,10.5 A6.857,6.857 0 1,1 17.357,10.5 Z"
-        android:strokeColor="@color/tally_outline"
-        android:strokeWidth="2.286" />
+        android:pathData="M17.5,10.5 A7,7 0 1,1 3.5,10.5 A7,7 0 1,1 17.5,10.5 Z"
+        android:fillColor="@color/tally_ink" />
+    <path
+        android:pathData="M20.25,10.5 A9.75,9.75 0 1,1 0.75,10.5 A9.75,9.75 0 1,1 20.25,10.5 Z"
+        android:strokeColor="@color/tally_ink"
+        android:strokeWidth="1.5" />
 </vector>

@@ -5,6 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+  Spec: tokens.json sha256 d2407cf59ae226fdb4cc21fd2e7af5ba2ce55922f7a35ea660f399ebcdfa3916
 -->
 <resources>
     <!-- bg: light n96 · dark n4 -->
@@ -24,7 +25,7 @@
     <!-- accent: light p40 (hue −8° for seeds at 55–110°) · dark p80 -->
     <color name="tally_accent">@android:color/system_accent1_200</color>
     <!-- onAccent: light p100 (#FFFFFF) · dark p20 -->
-    <color name="tally_on_accent">@android:color/system_on_primary_dark</color>
+    <color name="tally_on_accent">@android:color/system_accent1_800</color>
     <!-- error: light e40 · dark e80 -->
     <color name="tally_error">@android:color/system_error_dark</color>
     <!-- inverse: light n20 · dark n90 -->

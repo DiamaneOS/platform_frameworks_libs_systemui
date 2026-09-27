@@ -5,13 +5,14 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+  Spec: tokens.json sha256 d2407cf59ae226fdb4cc21fd2e7af5ba2ce55922f7a35ea660f399ebcdfa3916
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="21dp"
     android:height="21dp"
     android:viewportWidth="21"
     android:viewportHeight="21">
-    <!-- live lamp, 16 dp, drawn in a 21 dp box (the lamp plus the live halo's reach); centre it on the lamp's 16 dp box -->
+    <!-- live lamp (dark theme), 16 dp, drawn in a 21 dp box (the lamp plus the live halo's reach); centre it on the lamp's 16 dp box -->
     <path
         android:pathData="M17.5,10.5 A7,7 0 1,1 3.5,10.5 A7,7 0 1,1 17.5,10.5 Z"
         android:fillColor="@color/tally_accent" />

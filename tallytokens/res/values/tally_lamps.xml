@@ -5,8 +5,14 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+  Spec: tokens.json sha256 d2407cf59ae226fdb4cc21fd2e7af5ba2ce55922f7a35ea660f399ebcdfa3916
 -->
 <resources>
+    <!-- drawable box: 14, 17, 19 and 21 dp for lamps of 10, 12, 14 and 16 dp -->
+    <dimen name="tally_lamp_box_10">14dp</dimen>
+    <dimen name="tally_lamp_box_12">17dp</dimen>
+    <dimen name="tally_lamp_box_14">19dp</dimen>
+    <dimen name="tally_lamp_box_16">21dp</dimen>
     <!-- size: 12 dp -->
     <dimen name="tally_lamp_size">12dp</dimen>
     <!-- small: 10 dp -->
