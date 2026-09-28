@@ -3,7 +3,7 @@
 //
 // Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
 // repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-// Spec: tokens.json sha256 60c50937e058a074887ee4435c974ee237d80abb5133f044b98c26252536c04e
+// Spec: tokens.json sha256 6b284c5d150020815d22b6758bb41154647ce24453e23005e8f2097c7e401a21
 
 package {
     default_applicable_licenses: ["Android-Apache-2.0"],
