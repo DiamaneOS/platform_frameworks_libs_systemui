@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 60c50937e058a074887ee4435c974ee237d80abb5133f044b98c26252536c04e
+  Spec: tokens.json sha256 6b284c5d150020815d22b6758bb41154647ce24453e23005e8f2097c7e401a21
 -->
 <resources>
     <!-- space 4: 4 dp -->
@@ -36,7 +36,7 @@
     <dimen name="tally_tile_height_large">64dp</dimen>
     <!-- small tile: 52 × 52 dp keycap -->
     <dimen name="tally_tile_size_small">52dp</dimen>
-    <!-- switch: 52 × 32 dp, r8, 2 dp border -->
+    <!-- switch: 52 × 32 dp, r8; off, a surfaceHigh track in a 2 dp outline border; lit, the lamp to the edge, over the border, with the 1.5 dp lampOutline edge in light theme (the owner's choice of 28 September 2026) -->
     <dimen name="tally_switch_width">52dp</dimen>
     <!-- switch height: 32 dp -->
     <dimen name="tally_switch_height">32dp</dimen>
