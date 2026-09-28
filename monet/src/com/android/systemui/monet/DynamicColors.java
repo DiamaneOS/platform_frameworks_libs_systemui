@@ -77,8 +77,9 @@ public class DynamicColors {
      */
     public static List<Pair<String, DynamicColor>> getAllDynamicColorsMapped() {
         MaterialDynamicColors mdc = new MaterialDynamicColors();
-        return generateSysUINames(mdc.allDynamicColors().stream().filter(
-                dc -> !dc.get().name.contains("fixed")).toList());
+        return generateSysUINames(TallyDynamicColors.withTallyRoles(
+                mdc.allDynamicColors().stream().filter(
+                        dc -> !dc.get().name.contains("fixed")).toList()));
     }
 
     /**
@@ -89,8 +90,9 @@ public class DynamicColors {
     public static List<Pair<String, DynamicColor>> getFixedColorsMapped() {
         MaterialDynamicColors mdc = new MaterialDynamicColors();
 
-        return generateSysUINames(mdc.allDynamicColors().stream().filter(
-                dc -> dc.get().name.contains("fixed")).toList());
+        return generateSysUINames(TallyDynamicColors.withTallyRoles(
+                mdc.allDynamicColors().stream().filter(
+                        dc -> dc.get().name.contains("fixed")).toList()));
     }
 
     /**
@@ -136,11 +138,16 @@ public class DynamicColors {
                     // Stream over the shades for the current palette
                     return SHADE_KEYS.stream().map(shade -> {
                         String tokenName = paletteName + "_" + shade;
+                        double tone = (double) ((1000.0f - shade) / 10f);
 
+                        // The Tally palette style gives each stop the prototype's colour.
                         DynamicColor token = new DynamicColor(
                                 /* name= */ tokenName,
-                                /* palette= */ paletteExtractor,
-                                /* tone= */ (s) -> (double) ((1000.0f - shade) / 10f),
+                                /* palette= */ (s) -> s instanceof SchemeTally t
+                                        ? TonalPalette.fromHct(t.stop(paletteName, tone))
+                                        : paletteExtractor.apply(s),
+                                /* tone= */ (s) -> s instanceof SchemeTally t
+                                        ? t.stop(paletteName, tone).getTone() : tone,
                                 /* isBackground= */ true,
                                 /* background= */ null,
                                 /* secondBackground= */ null,

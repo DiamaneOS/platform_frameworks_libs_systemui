@@ -52,7 +52,14 @@ import java.util.stream.Collectors;
  */
 @Deprecated
 public class ColorScheme {
+    /** Google blue, AOSP's fallback seed. DiamaneOS's monet falls back to {@link #SODIUM}. */
     public static final int GOOGLE_BLUE = 0xFF1b6ef3;
+    /**
+     * DiamaneOS: the seed monet falls back to when the wallpaper gives no usable colour (a
+     * transparent seed, a seed too grey for the style, or no colours at all): Sodium, the Tally
+     * brand seed, in place of Google blue.
+     */
+    public static final int SODIUM = 0xFFFBA700;
     public static final float CONTRAST = 0.0f;
     private static final float ACCENT1_CHROMA = 48.0f;
     private static final int MIN_CHROMA = 5;
@@ -94,14 +101,18 @@ public class ColorScheme {
 
             return Hct.fromInt(
                     seed == Color.TRANSPARENT
-                            ? GOOGLE_BLUE
+                            ? SODIUM
                             : (style != ThemeStyle.CONTENT
                                     && proposedSeedHct.getChroma() < 5
-                                    ? GOOGLE_BLUE
+                                    ? SODIUM
                                     : seed));
         }).toList();
 
-        mMaterialScheme = switch (style) {
+        // DiamaneOS: every system theme style builds the Tally palette style. The stock schemes
+        // below remain for CONTENT and the clock styles.
+        mMaterialScheme = SchemeTally.appliesTo(style)
+                ? new SchemeTally(seedHcts, style, isDark, contrastLevel, platform)
+                : switch (style) {
             case ThemeStyle.SPRITZ -> new SchemeNeutral(seedHcts, isDark, contrastLevel,
                     specVersion,
                     platform);
@@ -130,12 +141,20 @@ public class ColorScheme {
             default -> throw new IllegalArgumentException("Unknown style: " + style);
         };
 
-        mAccent1 = new TonalPalette(mMaterialScheme.primaryPalette);
-        mAccent2 = new TonalPalette(mMaterialScheme.secondaryPalette);
-        mAccent3 = new TonalPalette(mMaterialScheme.tertiaryPalette);
-        mNeutral1 = new TonalPalette(mMaterialScheme.neutralPalette);
-        mNeutral2 = new TonalPalette(mMaterialScheme.neutralVariantPalette);
-        mError = new TonalPalette(mMaterialScheme.errorPalette);
+        mAccent1 = palette(mMaterialScheme.primaryPalette, "accent1");
+        mAccent2 = palette(mMaterialScheme.secondaryPalette, "accent2");
+        mAccent3 = palette(mMaterialScheme.tertiaryPalette, "accent3");
+        mNeutral1 = palette(mMaterialScheme.neutralPalette, "neutral1");
+        mNeutral2 = palette(mMaterialScheme.neutralVariantPalette, "neutral2");
+        mError = palette(mMaterialScheme.errorPalette, "error");
+    }
+
+    /** A palette of shades. The Tally palette style's are its palette stops. */
+    private TonalPalette palette(
+            com.google.ux.material.libmonet.palettes.TonalPalette materialPalette, String name) {
+        return mMaterialScheme instanceof SchemeTally tally
+                ? new TonalPalette(tone -> tally.stop(name, tone).toInt())
+                : new TonalPalette(materialPalette);
     }
 
     public ColorScheme(@ColorInt int seed, boolean isDark, @ThemeStyle.Type int style,
@@ -282,7 +301,7 @@ public class ColorScheme {
                     .filter(color -> !filter || Hct.fromInt(color).getChroma() >= MIN_CHROMA)
                     .collect(Collectors.toList());
             if (distinctColors.isEmpty()) {
-                return List.of(GOOGLE_BLUE);
+                return List.of(SODIUM);
             }
             return distinctColors;
         }
@@ -357,8 +376,8 @@ public class ColorScheme {
         }
 
         if (seeds.isEmpty()) {
-            // Use gBlue 500 if there are 0 colors
-            seeds.add(GOOGLE_BLUE);
+            // DiamaneOS: use Sodium if there are 0 colors
+            seeds.add(SODIUM);
         }
 
         return seeds;
