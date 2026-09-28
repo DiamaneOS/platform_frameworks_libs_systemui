@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 6b284c5d150020815d22b6758bb41154647ce24453e23005e8f2097c7e401a21
+  Spec: tokens.json sha256 17c7a32318d548ba331e9741c74f8e8a8abc8109d40767e7d8e96216c074721f
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- scrim: light ink at 45 % (#73) · dark black at 60 % -->
