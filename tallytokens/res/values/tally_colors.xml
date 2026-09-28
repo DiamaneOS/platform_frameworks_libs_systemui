@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 8b3c8d721abbeb0f4055ca39db14e393f5067468fb7510a5129fc742df70ee62
+  Spec: tokens.json sha256 60c50937e058a074887ee4435c974ee237d80abb5133f044b98c26252536c04e
 -->
 <resources>
     <!-- bg: light n96 · dark n4 -->
@@ -32,7 +32,7 @@
     <color name="tally_inverse">@android:color/system_inverse_surface_light</color>
     <!-- onInverse: light n95 · dark n20 -->
     <color name="tally_on_inverse">@android:color/system_inverse_on_surface_light</color>
-    <!-- lamp: primary hue and chroma at the seed's own tone, held to T74–T82 (Sodium #FBA700, T75); one colour in light and dark -->
+    <!-- lamp: primary hue and chroma at the seed's own tone, held to T74–T82 (Sodium #FBA700, T75); one colour in light and dark and at every contrast level -->
     <color name="tally_lamp">@android:color/system_primary_fixed_dim</color>
     <!-- onLamp: p10; one colour in light and dark -->
     <color name="tally_on_lamp">@android:color/system_accent1_900</color>
