@@ -142,8 +142,8 @@ public class SchemeTally extends DynamicScheme {
      * where something is on. The neutral, tertiary (chroma 0.06) and error palettes are as in
      * every style. Everything else drawn from the primary palette is near grey too: its stops,
      * among them the lamp's outline in light theme (accent1_700), the text on the lamp
-     * (accent1_900) and the dark accent (accent1_200) the shell draws lit lamps with in dark
-     * theme.
+     * (accent1_900) and the dark accent (accent1_200). Lit lamps take the lamp colour in both
+     * themes, so they keep the seed's colour in the quiet styles.
      */
     public static boolean isQuiet(@ThemeStyle.Type int style) {
         return style == ThemeStyle.MONOCHROMATIC || style == ThemeStyle.SPRITZ;
