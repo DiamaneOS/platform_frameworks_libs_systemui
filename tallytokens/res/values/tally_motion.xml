@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 8b3c8d721abbeb0f4055ca39db14e393f5067468fb7510a5129fc742df70ee62
+  Spec: tokens.json sha256 60c50937e058a074887ee4435c974ee237d80abb5133f044b98c26252536c04e
 -->
 <resources>
     <!-- pebble: 1500 / 1.0 -->
