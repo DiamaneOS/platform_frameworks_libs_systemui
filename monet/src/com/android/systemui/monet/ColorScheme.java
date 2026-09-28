@@ -52,7 +52,14 @@ import java.util.stream.Collectors;
  */
 @Deprecated
 public class ColorScheme {
+    /** Google blue, AOSP's fallback seed; monet itself now falls back to {@link #SODIUM}. */
     public static final int GOOGLE_BLUE = 0xFF1b6ef3;
+    /**
+     * DiamaneOS: the seed monet falls back to when the wallpaper gives no usable colour (a
+     * transparent seed, a seed too grey for the style, or no colours at all): Sodium, the Tally
+     * brand seed, in place of Google blue.
+     */
+    public static final int SODIUM = 0xFFFBA700;
     public static final float CONTRAST = 0.0f;
     private static final float ACCENT1_CHROMA = 48.0f;
     private static final int MIN_CHROMA = 5;
@@ -94,17 +101,17 @@ public class ColorScheme {
 
             return Hct.fromInt(
                     seed == Color.TRANSPARENT
-                            ? GOOGLE_BLUE
+                            ? SODIUM
                             : (style != ThemeStyle.CONTENT
                                     && proposedSeedHct.getChroma() < 5
-                                    ? GOOGLE_BLUE
+                                    ? SODIUM
                                     : seed));
         }).toList();
 
         // DiamaneOS: every system theme style builds the Tally palette style; the stock schemes
         // below remain for CONTENT and the clock styles.
         mMaterialScheme = SchemeTally.appliesTo(style)
-                ? new SchemeTally(seedHcts, isDark, contrastLevel, platform)
+                ? new SchemeTally(seedHcts, style, isDark, contrastLevel, platform)
                 : switch (style) {
             case ThemeStyle.SPRITZ -> new SchemeNeutral(seedHcts, isDark, contrastLevel,
                     specVersion,
@@ -294,7 +301,7 @@ public class ColorScheme {
                     .filter(color -> !filter || Hct.fromInt(color).getChroma() >= MIN_CHROMA)
                     .collect(Collectors.toList());
             if (distinctColors.isEmpty()) {
-                return List.of(GOOGLE_BLUE);
+                return List.of(SODIUM);
             }
             return distinctColors;
         }
@@ -369,8 +376,8 @@ public class ColorScheme {
         }
 
         if (seeds.isEmpty()) {
-            // Use gBlue 500 if there are 0 colors
-            seeds.add(GOOGLE_BLUE);
+            // DiamaneOS: use Sodium if there are 0 colors
+            seeds.add(SODIUM);
         }
 
         return seeds;
