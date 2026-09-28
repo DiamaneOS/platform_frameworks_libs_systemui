@@ -18,13 +18,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Supplier;
 
 /**
  * The DiamaneOS palette style of the Tally design language.
  *
  * <p>Every system theme style (the styles Wallpaper &amp; style and the theme service can set)
  * builds this scheme, so the palette applies whatever style is chosen; see {@link #appliesTo}.
- * Its roles are in {@link TallyDynamicColors}.
+ * The quiet styles, Monochrome and Spritz, take the prototype's near-grey palettes; see
+ * {@link #isQuiet}. Its roles, and how they follow the contrast level, are in
+ * {@link TallyDynamicColors}.
  *
  * <p>The palettes are the Tally prototype's (diamaneos-design, design/prototypes/tally,
  * {@code T.styleFor} and {@code T.post}): each a fixed OKLCH hue and chroma, reduced to fit sRGB,
@@ -36,17 +39,25 @@ import java.util.concurrent.ConcurrentHashMap;
  * exactly from its own hue, chroma and tone.
  *
  * <p>The scheme's HCT palettes, used by the roles Tally leaves to libmonet, approximate the Tally
- * palettes: the primary palette runs through the lamp, the others through the prototype's colour
- * at T40. Those roles resolve with the 2021 spec, whose tones the prototype mostly shares.
+ * palettes: the primary palette runs through its colour at the lamp's tone, the others through
+ * the prototype's colour at T40. Those roles resolve as Tonal Spot with the 2021 spec, whose tones
+ * the prototype mostly shares, in every style.
  *
  * <p>The palettes are the same in the light and the dark scheme, so each palette stop and the lamp
  * are one colour in both.
  */
 public class SchemeTally extends DynamicScheme {
 
-    /** The Tally palettes. */
+    /**
+     * The Tally palettes, and two colour families of the primary role that are not palettes. Each
+     * is a fixed OKLCH hue and chroma; a role's colour at any tone comes from its family.
+     */
     enum Palette {
-        PRIMARY, SECONDARY, TERTIARY, NEUTRAL, NEUTRAL_VARIANT, ERROR
+        PRIMARY, SECONDARY, TERTIARY, NEUTRAL, NEUTRAL_VARIANT, ERROR,
+        /** The light primary, the accent: the seed's hue, 8° lower for seeds at 55°-110°. */
+        ACCENT,
+        /** The dark primary above the lamp: the primary palette's hue at chroma 0.10 at most. */
+        PALE_PRIMARY
     }
 
     // The prototype's palette style, T.styleFor, T.post and T.QUIET: chroma in OKLCH, hues in
@@ -87,10 +98,10 @@ public class SchemeTally extends DynamicScheme {
     private final Style mStyle;
     private final Map<String, Hct> mColors = new ConcurrentHashMap<>();
 
-    public SchemeTally(List<Hct> sourceColorHctList, boolean isDark, double contrastLevel,
-            Platform platform) {
-        this(new Style(sourceColorHctList.get(0).toInt()), sourceColorHctList, isDark,
-                contrastLevel, platform);
+    public SchemeTally(List<Hct> sourceColorHctList, @ThemeStyle.Type int style, boolean isDark,
+            double contrastLevel, Platform platform) {
+        this(new Style(sourceColorHctList.get(0).toInt(), isQuiet(style)), sourceColorHctList,
+                isDark, contrastLevel, platform);
     }
 
     private SchemeTally(Style style, List<Hct> sourceColorHctList, boolean isDark,
@@ -116,6 +127,28 @@ public class SchemeTally extends DynamicScheme {
         };
     }
 
+    /**
+     * Whether a style is quiet: Monochrome and Spritz, which take the prototype's rule for a
+     * near-grey seed (OKLCH chroma under 0.03, in {@code T.styleFor} and {@code T.post}) whatever
+     * the seed's chroma, so a quiet style still looks quiet. Every other system style gives the
+     * one Tally palette.
+     *
+     * <p>How the rule applies here is an interpretation of the design decision of 28 September
+     * 2026 and can be changed in {@link Style}: the primary palette takes chroma 0.012 and the
+     * secondary 0.010, the tertiary keeps hue 150 (no turn to violet near green), and the accent,
+     * the dark primary and the quiet containers follow from those palettes as they do for a
+     * near-grey seed. Only the lamp (primary_fixed_dim, what shows that something is on) keeps
+     * the seed's own colour, as {@code T.post} computes it for that seed, so colour stays only
+     * where something is on. The neutral, tertiary (chroma 0.06) and error palettes are as in
+     * every style. Everything else drawn from the primary palette is near grey too: its stops,
+     * among them the lamp's outline in light theme (accent1_700), the text on the lamp
+     * (accent1_900) and the dark accent (accent1_200) the shell draws lit lamps with in dark
+     * theme.
+     */
+    public static boolean isQuiet(@ThemeStyle.Type int style) {
+        return style == ThemeStyle.MONOCHROMATIC || style == ThemeStyle.SPRITZ;
+    }
+
     /** The Tally colour of {@code palette} at {@code tone}. */
     Hct color(Palette palette, double tone) {
         return mColors.computeIfAbsent(palette + " " + tone,
@@ -138,21 +171,29 @@ public class SchemeTally extends DynamicScheme {
         }, tone);
     }
 
-    /** The lamp: the primary palette at the seed's own tone, held to T74-T82. */
+    /**
+     * The lamp: the seed's own colour, its hue at the prototype's primary chroma for the seed, at
+     * the seed's own tone held to T74-T82. The same in light and dark, in every style.
+     */
     Hct lamp() {
-        return color(Palette.PRIMARY, mStyle.mLampTone);
+        return mColors.computeIfAbsent("lamp", key -> Hct.fromInt(mStyle.mLamp));
     }
 
-    /** The light primary: the seed's hue (8° lower for seeds at 55°-110°) at T40. */
-    Hct lightPrimary() {
-        return mColors.computeIfAbsent("light primary", key -> Hct.fromInt(mStyle.lightPrimary()));
+    /**
+     * The primary's family: the accent in light; in dark the primary palette, or its paler family
+     * when T80 is too close to the lamp.
+     */
+    Palette primaryFamily() {
+        return !isDark ? Palette.ACCENT
+                : mStyle.mDarkPrimaryNearLamp ? Palette.PALE_PRIMARY : Palette.PRIMARY;
     }
 
-    /** The dark primary: T80, or near the lamp a paler colour six tones above it. */
-    Hct darkPrimary() {
-        return mStyle.mDarkPrimaryNearLamp
-                ? mColors.computeIfAbsent("dark primary", key -> Hct.fromInt(mStyle.darkPrimary()))
-                : color(Palette.PRIMARY, 80);
+    /**
+     * The primary's tone: T40 in light; in dark T80, or six tones above the lamp when T80 is fewer
+     * than five tones from it, so the dark app primary is never the lamp.
+     */
+    double primaryTone() {
+        return !isDark ? 40 : mStyle.mDarkPrimaryNearLamp ? mStyle.mDarkPrimaryTone : 80;
     }
 
     /** The quiet containers of this scheme. */
@@ -174,6 +215,18 @@ public class SchemeTally extends DynamicScheme {
     private Hct quiet(String key, Palette palette, double[] chromaAndTone) {
         return mColors.computeIfAbsent(key,
                 k -> Hct.fromInt(mStyle.quiet(palette, chromaAndTone[0], chromaAndTone[1])));
+    }
+
+    /** The colour of the role {@code name} in this scheme, computed once. */
+    Hct role(String name, Supplier<Hct> color) {
+        // Not computeIfAbsent: a role's colour can depend on another role's.
+        String key = "role " + name;
+        Hct hct = mColors.get(key);
+        if (hct == null) {
+            hct = color.get();
+            mColors.putIfAbsent(key, hct);
+        }
+        return hct;
     }
 
     // Asked for a role, the scheme gives Tally's, as monet's role map does. Its role getters
@@ -199,12 +252,14 @@ public class SchemeTally extends DynamicScheme {
     /** The prototype's palette style for one seed; the same for light and dark. */
     static final class Style {
         final double mLampTone;
+        final int mLamp;
         final boolean mDarkPrimaryNearLamp;
+        final double mDarkPrimaryTone;
         private final double mSeedHue;
+        private final double mAccentHue;
         private final double mPrimaryChroma;
         private final double mSecondaryChroma;
         private final double mTertiaryHue;
-        private final double mDarkPrimaryTone;
         // The scheme's HCT palettes, {hue, chroma}.
         private final double[] mHctPrimary;
         private final double[] mHctSecondary;
@@ -213,26 +268,35 @@ public class SchemeTally extends DynamicScheme {
         private final double[] mHctNeutralVariant;
         private final double[] mHctError;
 
-        Style(int seed) {
+        /** The palette style for {@code seed}; {@code quiet} for Monochrome and Spritz. */
+        Style(int seed, boolean quiet) {
             double[] lch = Oklch.fromArgb(seed);
             double seedChroma = lch[1];
             mSeedHue = lch[2];
-            boolean nearGrey = seedChroma < NEAR_GREY_CHROMA;
-            mPrimaryChroma = nearGrey ? PRIMARY_GREY_CHROMA
+            boolean greySeed = seedChroma < NEAR_GREY_CHROMA;
+            // T.post's primary chroma for the seed, which the lamp keeps in every style.
+            double seedPrimaryChroma = greySeed ? PRIMARY_GREY_CHROMA
                     : Math.max(PRIMARY_MIN_CHROMA, seedChroma);
+            // The quiet styles take the near-grey rule whatever the seed (see isQuiet).
+            boolean nearGrey = greySeed || quiet;
+            mPrimaryChroma = nearGrey ? PRIMARY_GREY_CHROMA : seedPrimaryChroma;
             mSecondaryChroma = nearGrey ? SECONDARY_GREY_CHROMA : SECONDARY_CHROMA;
             mTertiaryHue = !nearGrey
                     && hueDistance(mSeedHue, TERTIARY_HUE) < TERTIARY_NEAR_GREEN_DISTANCE
                     ? TERTIARY_HUE_NEAR_GREEN : TERTIARY_HUE;
+            mAccentHue = mSeedHue >= ACCENT_SHIFT_MIN_HUE && mSeedHue <= ACCENT_SHIFT_MAX_HUE
+                    ? mSeedHue + ACCENT_HUE_SHIFT : mSeedHue;
             mLampTone = Math.min(LAMP_MAX_TONE, Math.max(LAMP_MIN_TONE, Oklch.tone(seed)));
+            mLamp = Oklch.toArgb(mSeedHue, seedPrimaryChroma, mLampTone, null);
             // The dark app primary is never the lamp: where T80 is fewer than five tones from it,
             // the primary moves to a paler colour six tones above the lamp.
             mDarkPrimaryNearLamp = Math.abs(Oklch.tone(color(Palette.PRIMARY, 80)) - mLampTone)
                     < LAMP_GAP;
             mDarkPrimaryTone = Math.min(DARK_PRIMARY_MAX_TONE, mLampTone + DARK_PRIMARY_LIFT);
 
-            // The primary HCT palette runs through the lamp. Where sRGB cannot hold the lamp at
-            // full chroma, it keeps the chroma the prototype asks for, not to dull other tones.
+            // The primary HCT palette runs through the primary palette's colour at the lamp's
+            // tone, which is the lamp but in the quiet styles. Where sRGB cannot hold that colour
+            // at full chroma, it keeps the chroma the prototype asks for, not to dull other tones.
             boolean[] clipped = new boolean[1];
             mHctPrimary = hueAndChroma(
                     Oklch.toArgb(mSeedHue, mPrimaryChroma, mLampTone, clipped));
@@ -258,18 +322,10 @@ public class SchemeTally extends DynamicScheme {
                 case NEUTRAL -> Oklch.toArgb(mSeedHue, NEUTRAL_CHROMA, tone, null);
                 case NEUTRAL_VARIANT -> Oklch.toArgb(mSeedHue, NEUTRAL_VARIANT_CHROMA, tone, null);
                 case ERROR -> Oklch.toArgb(ERROR_HUE, ERROR_CHROMA, tone, null);
+                case ACCENT -> Oklch.toArgb(mAccentHue, mPrimaryChroma, tone, null);
+                case PALE_PRIMARY -> Oklch.toArgb(mSeedHue,
+                        Math.min(mPrimaryChroma, DARK_PRIMARY_MAX_CHROMA), tone, null);
             };
-        }
-
-        int lightPrimary() {
-            boolean shifted = mSeedHue >= ACCENT_SHIFT_MIN_HUE && mSeedHue <= ACCENT_SHIFT_MAX_HUE;
-            return Oklch.toArgb(shifted ? mSeedHue + ACCENT_HUE_SHIFT : mSeedHue, mPrimaryChroma,
-                    40, null);
-        }
-
-        int darkPrimary() {
-            return Oklch.toArgb(mSeedHue, Math.min(mPrimaryChroma, DARK_PRIMARY_MAX_CHROMA),
-                    mDarkPrimaryTone, null);
         }
 
         /** A quiet container of {@code palette}: its hue at a lower chroma. */
@@ -293,6 +349,8 @@ public class SchemeTally extends DynamicScheme {
                 case NEUTRAL -> mHctNeutral;
                 case NEUTRAL_VARIANT -> mHctNeutralVariant;
                 case ERROR -> mHctError;
+                case ACCENT, PALE_PRIMARY ->
+                        throw new IllegalArgumentException("Not a palette: " + palette);
             };
             return TonalPalette.fromHueAndChroma(hueAndChroma[0], hueAndChroma[1]);
         }
