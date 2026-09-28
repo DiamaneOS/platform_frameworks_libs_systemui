@@ -6,7 +6,7 @@ Settings read the same values by adding `tallytokens` to their `static_libs`. Re
 and SettingsLib do not link it; they get literal values generated from the same spec.
 
 These files are generated from the Tally token spec in the DiamaneOS design repository
-(`design/tokens/`, spec sha256 d2407cf59ae226fd). Do not edit them here: change the spec and
+(`design/tokens/`, spec sha256 8b3c8d721abbeb0f). Do not edit them here: change the spec and
 regenerate. Only `lint-baseline.xml`, `OWNERS`, `METADATA` may be kept here by hand.
 
 - Colours point at the framework's dynamic-colour roles and palette tones (`values/` uses the
