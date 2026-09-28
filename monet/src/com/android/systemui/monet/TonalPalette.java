@@ -19,10 +19,11 @@ package com.android.systemui.monet;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
 
 public class TonalPalette {
-    private final com.google.ux.material.libmonet.palettes.TonalPalette mMaterialTonalPalette;
+    private final IntUnaryOperator mColorAtTone;
     /**
      * @deprecated Do not use. For color system only
      */
@@ -31,7 +32,12 @@ public class TonalPalette {
     public final Map<Integer, Integer> allShadesMapped;
 
     TonalPalette(com.google.ux.material.libmonet.palettes.TonalPalette materialTonalPalette) {
-        this.mMaterialTonalPalette = materialTonalPalette;
+        this(materialTonalPalette::tone);
+    }
+
+    /** A palette whose colour at each tone is {@code colorAtTone}'s (the Tally palette style). */
+    TonalPalette(IntUnaryOperator colorAtTone) {
+        this.mColorAtTone = colorAtTone;
         this.allShades = SHADE_KEYS.stream().map(key -> getAtTone(key.floatValue())).collect(
                 Collectors.toList());
         this.allShadesMapped = SHADE_KEYS.stream().collect(
@@ -44,7 +50,7 @@ public class TonalPalette {
      * @return Int representing color at new shade / tone
      */
     public int getAtTone(float shade) {
-        return mMaterialTonalPalette.tone((int) ((1000.0f - shade) / 10f));
+        return mColorAtTone.applyAsInt((int) ((1000.0f - shade) / 10f));
     }
 
     // Predefined & precomputed tones

@@ -101,7 +101,11 @@ public class ColorScheme {
                                     : seed));
         }).toList();
 
-        mMaterialScheme = switch (style) {
+        // DiamaneOS: every system theme style builds the Tally palette style; the stock schemes
+        // below remain for CONTENT and the clock styles.
+        mMaterialScheme = SchemeTally.appliesTo(style)
+                ? new SchemeTally(seedHcts, isDark, contrastLevel, platform)
+                : switch (style) {
             case ThemeStyle.SPRITZ -> new SchemeNeutral(seedHcts, isDark, contrastLevel,
                     specVersion,
                     platform);
@@ -130,12 +134,20 @@ public class ColorScheme {
             default -> throw new IllegalArgumentException("Unknown style: " + style);
         };
 
-        mAccent1 = new TonalPalette(mMaterialScheme.primaryPalette);
-        mAccent2 = new TonalPalette(mMaterialScheme.secondaryPalette);
-        mAccent3 = new TonalPalette(mMaterialScheme.tertiaryPalette);
-        mNeutral1 = new TonalPalette(mMaterialScheme.neutralPalette);
-        mNeutral2 = new TonalPalette(mMaterialScheme.neutralVariantPalette);
-        mError = new TonalPalette(mMaterialScheme.errorPalette);
+        mAccent1 = palette(mMaterialScheme.primaryPalette, "accent1");
+        mAccent2 = palette(mMaterialScheme.secondaryPalette, "accent2");
+        mAccent3 = palette(mMaterialScheme.tertiaryPalette, "accent3");
+        mNeutral1 = palette(mMaterialScheme.neutralPalette, "neutral1");
+        mNeutral2 = palette(mMaterialScheme.neutralVariantPalette, "neutral2");
+        mError = palette(mMaterialScheme.errorPalette, "error");
+    }
+
+    /** A palette of shades; the Tally palette style's are its palette stops. */
+    private TonalPalette palette(
+            com.google.ux.material.libmonet.palettes.TonalPalette materialPalette, String name) {
+        return mMaterialScheme instanceof SchemeTally tally
+                ? new TonalPalette(tone -> tally.stop(name, tone).toInt())
+                : new TonalPalette(materialPalette);
     }
 
     public ColorScheme(@ColorInt int seed, boolean isDark, @ThemeStyle.Type int style,
