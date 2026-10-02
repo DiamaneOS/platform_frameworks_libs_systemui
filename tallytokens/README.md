@@ -6,17 +6,21 @@ Settings read the same values by adding `tallytokens` to their `static_libs`. Re
 and SettingsLib do not link it; they get literal values generated from the same spec.
 
 These files are generated from the Tally token spec in the DiamaneOS design repository
-(`design/tokens/`, spec sha256 39573265ce47cb9e). Do not edit them here: change the spec and
+(`design/tokens/`, spec sha256 635e2284c0412702). Do not edit them here: change the spec and
 regenerate. Only `lint-baseline.xml`, `OWNERS`, `METADATA` may be kept here by hand.
 
 - Colours point at the framework's dynamic-colour roles and palette tones (`values/` uses the
   `*_light` roles, `values-night/` the `*_dark` roles), so the seed, the palette style and dark
   theme reach them. Palette tones and fixed roles also resolve per theme; the step 2 palette
-  style makes the lamp one colour in both. Only the sensor, capture and keycap relief colours are
-  fixed values. `color/` holds roles at an alpha (scrims, the press layer).
+  style makes the lamp one colour in both. Only the sensor, capture, keycap relief and app key
+  colours are fixed values. `color/` holds roles at an alpha (scrims, the press layer).
 - The status bar privacy and capture chips and the fullscreen dots use the fixed
   `tally_sensor_light`/`_dark` and `tally_capture_light`/`_dark` colours, chosen by the area under
   them (the light variants over a light area), never by night mode.
+- The Colour icon style's app keys are three arrays in the same order: `tally_app_key_packages`
+  (DiamaneOS's own apps), `tally_app_key_plates` (each key's colour) and `tally_app_key_glyphs`
+  (its glyph's colour), the same in light and dark. Launcher3 and SystemUI read them; an app that
+  is not listed, or not a system app, keeps its own icon.
 - Every resource name starts with `tally_` (text appearances with `TextAppearance.Tally`).
 - Springs and other ratios are float dimens: read them with `Resources.getFloat()`.
 - Line heights are sp dimens: apply them with `android:lineHeight` in XML or
