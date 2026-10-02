@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 The DiamaneOS Project
+
+  Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
+  repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
+  Spec: tokens.json sha256 635e2284c041270272325c78cb2238a42d9c09ce10d4292ca0aa6455707f91bc
+-->
+<resources>
+    <!-- Phone key: #2E7D32, white glyph (5.1:1) -->
+    <color name="tally_app_key_phone">#2E7D32</color>
+    <!-- Messages key: #1565C0, white glyph (5.8:1) -->
+    <color name="tally_app_key_messages">#1565C0</color>
+    <!-- Camera key: #263238, white glyph (13.2:1) -->
+    <color name="tally_app_key_camera">#263238</color>
+    <!-- Gallery key: #F9A825, white glyph (2.0:1) -->
+    <color name="tally_app_key_gallery">#F9A825</color>
+    <!-- Clock key: #455A64, white glyph (7.2:1) -->
+    <color name="tally_app_key_clock">#455A64</color>
+    <!-- Files key: #5D4037, white glyph (9.3:1) -->
+    <color name="tally_app_key_files">#5D4037</color>
+    <!-- Contacts key: #00838F, white glyph (4.5:1) -->
+    <color name="tally_app_key_contacts">#00838F</color>
+    <!-- Calculator key: #424242, white glyph (10.1:1) -->
+    <color name="tally_app_key_calculator">#424242</color>
+    <!-- Settings key: #546E7A, white glyph (5.4:1) -->
+    <color name="tally_app_key_settings">#546E7A</color>
+    <!-- Browser key: #37474F, white glyph (9.6:1) -->
+    <color name="tally_app_key_browser">#37474F</color>
+    <!-- App Store key: #4527A0, white glyph (10.2:1) -->
+    <color name="tally_app_key_app_store">#4527A0</color>
+    <!-- Auditor key: #BF360C, white glyph (5.6:1) -->
+    <color name="tally_app_key_auditor">#BF360C</color>
+    <!-- PDF Viewer key: #AD1457, white glyph (7.0:1) -->
+    <color name="tally_app_key_pdf_viewer">#AD1457</color>
+    <!-- SIM Toolkit key: #00695C, white glyph (6.6:1) -->
+    <color name="tally_app_key_sim_toolkit">#00695C</color>
+    <!-- The Colour icon style's app keys, in the same order in each array: the app's package, its plate and its glyph -->
+    <string-array name="tally_app_key_packages" translatable="false">
+        <item>com.android.dialer</item>
+        <item>com.android.messaging</item>
+        <item>app.grapheneos.camera</item>
+        <item>com.android.gallery3d</item>
+        <item>com.android.deskclock</item>
+        <item>com.android.documentsui</item>
+        <item>com.android.contacts</item>
+        <item>com.android.calculator2</item>
+        <item>com.android.settings</item>
+        <item>app.vanadium.browser</item>
+        <item>app.grapheneos.apps</item>
+        <item>app.attestation.auditor</item>
+        <item>app.grapheneos.pdfviewer</item>
+        <item>com.android.stk</item>
+    </string-array>
+    <array name="tally_app_key_plates">
+        <item>@color/tally_app_key_phone</item>
+        <item>@color/tally_app_key_messages</item>
+        <item>@color/tally_app_key_camera</item>
+        <item>@color/tally_app_key_gallery</item>
+        <item>@color/tally_app_key_clock</item>
+        <item>@color/tally_app_key_files</item>
+        <item>@color/tally_app_key_contacts</item>
+        <item>@color/tally_app_key_calculator</item>
+        <item>@color/tally_app_key_settings</item>
+        <item>@color/tally_app_key_browser</item>
+        <item>@color/tally_app_key_app_store</item>
+        <item>@color/tally_app_key_auditor</item>
+        <item>@color/tally_app_key_pdf_viewer</item>
+        <item>@color/tally_app_key_sim_toolkit</item>
+    </array>
+    <array name="tally_app_key_glyphs">
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+    </array>
+</resources>
