@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 635e2284c041270272325c78cb2238a42d9c09ce10d4292ca0aa6455707f91bc
+  Spec: tokens.json sha256 39b584c3a307e1a9c2f6f43d9ad881a7123dee742a3f14b9ef36a62aeeaf1caa
 -->
 <resources>
     <!-- Phone key: #2E7D32, white glyph (5.1:1) -->
@@ -14,8 +14,8 @@
     <color name="tally_app_key_messages">#1565C0</color>
     <!-- Camera key: #263238, white glyph (13.2:1) -->
     <color name="tally_app_key_camera">#263238</color>
-    <!-- Gallery key: #F9A825, white glyph (2.0:1) -->
-    <color name="tally_app_key_gallery">#F9A825</color>
+    <!-- Gallery key: #AC6600, white glyph (4.5:1) -->
+    <color name="tally_app_key_gallery">#AC6600</color>
     <!-- Clock key: #455A64, white glyph (7.2:1) -->
     <color name="tally_app_key_clock">#455A64</color>
     <!-- Files key: #5D4037, white glyph (9.3:1) -->
