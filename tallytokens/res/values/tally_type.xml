@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 39b584c3a307e1a9c2f6f43d9ad881a7123dee742a3f14b9ef36a62aeeaf1caa
+  Spec: tokens.json sha256 78f5a5b3e8799b1e80ebc03160c17180e85d1fe6ac9987388fba174e3e2c2a3e
 -->
 <resources>
     <!-- family: sofia-sans -->
