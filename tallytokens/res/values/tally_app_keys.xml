@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 78f5a5b3e8799b1e80ebc03160c17180e85d1fe6ac9987388fba174e3e2c2a3e
+  Spec: tokens.json sha256 ab589ebd87619e41e749663724288bd74e0435cbd3ef29a5d0e9d2f0abbbac46
 -->
 <resources>
     <!-- Phone key: #2E7D32, white glyph (5.1:1) -->
@@ -16,6 +16,10 @@
     <color name="tally_app_key_camera">#263238</color>
     <!-- Gallery key: #AC6600, white glyph (4.5:1) -->
     <color name="tally_app_key_gallery">#AC6600</color>
+    <!-- Gallery key (Glimpse): #AC6600, white glyph (4.5:1) -->
+    <color name="tally_app_key_gallery_glimpse">#AC6600</color>
+    <!-- Gallery key (GrapheneOS): #AC6600, white glyph (4.5:1) -->
+    <color name="tally_app_key_gallery_grapheneos">#AC6600</color>
     <!-- Clock key: #455A64, white glyph (7.2:1) -->
     <color name="tally_app_key_clock">#455A64</color>
     <!-- Files key: #5D4037, white glyph (9.3:1) -->
@@ -44,6 +48,8 @@
         <item>com.android.messaging</item>
         <item>app.grapheneos.camera</item>
         <item>com.android.gallery3d</item>
+        <item>org.lineageos.glimpse</item>
+        <item>app.grapheneos.gallery</item>
         <item>com.android.deskclock</item>
         <item>com.android.documentsui</item>
         <item>com.android.contacts</item>
@@ -61,6 +67,8 @@
         <item>@color/tally_app_key_messages</item>
         <item>@color/tally_app_key_camera</item>
         <item>@color/tally_app_key_gallery</item>
+        <item>@color/tally_app_key_gallery_glimpse</item>
+        <item>@color/tally_app_key_gallery_grapheneos</item>
         <item>@color/tally_app_key_clock</item>
         <item>@color/tally_app_key_files</item>
         <item>@color/tally_app_key_contacts</item>
@@ -74,6 +82,8 @@
         <item>@color/tally_app_key_esim</item>
     </array>
     <array name="tally_app_key_glyphs">
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>
