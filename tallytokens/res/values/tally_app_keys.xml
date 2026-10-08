@@ -5,7 +5,7 @@
 
   Generated from the Tally token spec (design/tokens/tokens.json in the DiamaneOS design
   repository) by design/tokens/generate.py. Do not edit: change the spec and regenerate.
-  Spec: tokens.json sha256 ab589ebd87619e41e749663724288bd74e0435cbd3ef29a5d0e9d2f0abbbac46
+  Spec: tokens.json sha256 9959925fc2cfb2345adbbc9111b414d9e78c1914b5b8f9802f152659074f609b
 -->
 <resources>
     <!-- Phone key: #2E7D32, white glyph (5.1:1) -->
@@ -40,8 +40,6 @@
     <color name="tally_app_key_pdf_viewer">#AD1457</color>
     <!-- SIM Toolkit key: #00695C, white glyph (6.6:1) -->
     <color name="tally_app_key_sim_toolkit">#00695C</color>
-    <!-- eSIM key: #283593, white glyph (10.4:1) -->
-    <color name="tally_app_key_esim">#283593</color>
     <!-- The Colour icon style's app keys, in the same order in each array: the app's package, its plate and its glyph -->
     <string-array name="tally_app_key_packages" translatable="false">
         <item>com.android.dialer</item>
@@ -60,7 +58,6 @@
         <item>app.attestation.auditor</item>
         <item>app.grapheneos.pdfviewer</item>
         <item>com.android.stk</item>
-        <item>de.diamaneos.euicc</item>
     </string-array>
     <array name="tally_app_key_plates">
         <item>@color/tally_app_key_phone</item>
@@ -79,10 +76,8 @@
         <item>@color/tally_app_key_auditor</item>
         <item>@color/tally_app_key_pdf_viewer</item>
         <item>@color/tally_app_key_sim_toolkit</item>
-        <item>@color/tally_app_key_esim</item>
     </array>
     <array name="tally_app_key_glyphs">
-        <item>#FFFFFF</item>
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>
