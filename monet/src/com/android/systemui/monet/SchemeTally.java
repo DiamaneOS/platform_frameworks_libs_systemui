@@ -133,8 +133,8 @@ public class SchemeTally extends DynamicScheme {
      * the seed's chroma, so a quiet style still looks quiet. Every other system style gives the
      * one Tally palette.
      *
-     * <p>How the rule applies here is an interpretation of the design decision of 28 September
-     * 2026 and can be changed in {@link Style}: the primary palette takes chroma 0.012 and the
+     * <p>How the rule applies here is an interpretation of the design rule and can be changed in
+     * {@link Style}: the primary palette takes chroma 0.012 and the
      * secondary 0.010, the tertiary keeps hue 150 (no turn to violet near green), and the accent,
      * the dark primary and the quiet containers follow from those palettes as they do for a
      * near-grey seed. Only the lamp (primary_fixed_dim, what shows that something is on) keeps

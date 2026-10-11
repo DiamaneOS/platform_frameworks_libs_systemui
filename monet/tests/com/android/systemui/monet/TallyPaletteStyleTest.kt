@@ -26,8 +26,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * The resources of some of the prototype's colours (diamaneos-design d7078f8,
- * design/prototypes/tally), in this order: the lamp, onLamp, the accent in light and dark, the dark
+ * The resources of some of the Tally prototype's colours,
+ * in this order: the lamp, onLamp, the accent in light and dark, the dark
  * app primary, the background in light and dark, the surface in light, the tertiary in light.
  */
 private val PROTOTYPE_RESOURCES =
