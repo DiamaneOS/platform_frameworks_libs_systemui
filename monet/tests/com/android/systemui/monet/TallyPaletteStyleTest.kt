@@ -124,7 +124,7 @@ private val SEEDS =
 
 private val CONTRASTS = listOf(0.0, 0.5, 1.0)
 
-// Every style Wallpaper & style or the theme service can set; the palette applies under each.
+// Every style Wallpaper & style or the theme service can set. The palette applies under each.
 private val SYSTEM_STYLES =
     listOf(
         ThemeStyle.SPRITZ,
@@ -140,7 +140,7 @@ private val SYSTEM_STYLES =
 /** Monochrome and Spritz, which take the near-grey palettes. */
 private val QUIET_STYLES = listOf(ThemeStyle.MONOCHROMATIC, ThemeStyle.SPRITZ)
 
-/** Tones are L*; 8-bit rounding moves a colour's tone by up to about 0.3. */
+/** Tones are L*. 8-bit rounding moves a colour's tone by up to about 0.3. */
 private const val TONE_TOLERANCE = 0.5
 
 /**
@@ -183,7 +183,7 @@ private val EXPECTED =
 /**
  * A text or outline role, what it is drawn on in the light and the dark scheme, and the contrast
  * ratio it keeps against that at medium (0.5) and high (1.0) contrast: libmonet's own for the role
- * (ColorSpec2021, the spec the Tally scheme resolves with; see TallyDynamicColors).
+ * (ColorSpec2021, the spec the Tally scheme resolves with in TallyDynamicColors).
  */
 private class ContrastPair(
     val role: String,
@@ -228,7 +228,7 @@ private val CONTRAST_PAIRS =
         on("on_primary_fixed_variant", "primary_fixed", 7.0, 11.0),
     )
 
-/** The roles that hold their colour at every contrast level; the palette stops do too. */
+/** The roles that hold their colour at every contrast level. The palette stops do too. */
 private val FIXED_ROLES =
     listOf(
         "background",
@@ -251,7 +251,7 @@ private val FIXED_ROLES =
         "primary_fixed_dim",
     )
 
-/** The primary and secondary roles the quiet styles make near grey; the lamp keeps its colour. */
+/** The primary and secondary roles the quiet styles make near grey. The lamp keeps its colour. */
 private val QUIET_ROLES =
     listOf(
         "primary",

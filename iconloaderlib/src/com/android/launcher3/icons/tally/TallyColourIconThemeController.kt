@@ -38,7 +38,7 @@ import java.util.concurrent.ConcurrentHashMap
  * installed under a listed name never looks like one of the system's own.
  *
  * The glyph is the app's monochrome layer, or the one the Minimal style makes for an icon without
- * one ([TallyMonoIconThemeController]); a clock icon keeps its moving hands. The key's colours are
+ * one ([TallyMonoIconThemeController]). A clock icon keeps its moving hands. The key's colours are
  * fixed: a generated glyph's colours are not adapted for contrast, as stock adapts a theme's.
  *
  * Launcher sets this controller on its icon factory and finds each icon's app from the icon's
@@ -49,7 +49,7 @@ class TallyColourIconThemeController
 @JvmOverloads
 constructor(
     private val keys: TallyAppKeys,
-    /** Whether a package is a system app; may read the package manager. */
+    /** Whether a package is a system app. May read the package manager. */
     private val isSystemApp: (Context, String) -> Boolean = ::isSystemPackage,
 ) : IconThemeController {
 
@@ -95,7 +95,7 @@ constructor(
         originalIcon: AdaptiveIconDrawable,
         info: BitmapInfo?,
     ): AdaptiveIconDrawable? {
-        // An app's own icon stays its own; a key is drawn by its app's controller.
+        // An app's own icon stays its own. A key is drawn by its app's controller.
         val keyed = info?.themedBitmap as? KeyBitmap ?: return originalIcon
         return keyed.controller.createThemedAdaptiveIcon(context, originalIcon, info)
     }

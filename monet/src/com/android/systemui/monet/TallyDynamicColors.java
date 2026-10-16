@@ -37,17 +37,17 @@ import java.util.function.ToDoubleFunction;
  * design/tokens).
  *
  * <p>The roles apps pair with them have Tally tones too, at the 2021 spec's tones for standard
- * contrast: the other surfaces (background, dim, bright; surface variant as the highest
- * container, which Material 3 now uses in its place), the surface tint (the primary) and the rest
+ * contrast: the other surfaces (background, dim and bright, with surface variant as the highest
+ * container, which Material 3 uses in its place), the surface tint (the primary) and the rest
  * of the primary fixed family around the lamp.
  *
  * <p><b>Contrast.</b> At standard contrast (0, and below it) every role is exactly its Tally
  * colour. Above it the text and outline roles gain contrast against what they are drawn on, as
  * stock Material 3's contrast curves make them do. Each keeps its Tally colour while that gives
- * the ratio the contrast level asks for; otherwise it moves along its own Tally palette, away from
+ * the ratio the contrast level asks for. Otherwise it moves along its own Tally palette, away from
  * what it is drawn on, just far enough to give it, or to black or white. What a role is drawn on
  * and the ratio it needs are libmonet's own for the role, from the 2021 spec the scheme resolves
- * with (libmonet f56ffa0, ColorSpec2021), read from libmonet's role; at medium (0.5) and high
+ * with (libmonet f56ffa0, ColorSpec2021), read from libmonet's role. At medium (0.5) and high
  * (1.0) contrast they are:
  *
  * <pre>
@@ -75,10 +75,10 @@ import java.util.function.ToDoubleFunction;
  * jumps at small levels. Which roles count as text: the on_* roles and the outlines, and primary,
  * secondary, tertiary, error and inverse_primary, which apps also draw text and icons in on
  * surfaces (text buttons, links, selected labels), the reason libmonet gives them a contrast
- * curve against the surfaces; libmonet stops them at 7:1, so they keep their colour. Every other
- * role holds its colour at every level: the surfaces and inverse_surface; the lamp; the
- * containers and primary_fixed, the large areas apps paint, which stay quiet while the text on
- * them gains contrast (stock raises containers against the surface instead); and the surface
+ * curve against the surfaces. Libmonet stops them at 7:1, so they keep their colour. Every other
+ * role holds its colour at every level: the surfaces and inverse_surface, the lamp, the
+ * containers and primary_fixed (the large areas apps paint, which stay quiet while the text on
+ * them gains contrast, where stock raises containers against the surface instead) and the surface
  * tint, which tints surfaces.
  *
  * <p>For any other scheme each role is the stock libmonet role, so CONTENT and the clock styles
@@ -88,8 +88,8 @@ public final class TallyDynamicColors {
     private static final MaterialDynamicColors MDC = new MaterialDynamicColors();
 
     private static final Map<String, Role> ROLES = Map.ofEntries(
-            // Primary: the light primary is the accent (T40, hue 8° lower for seeds at 55°-110°);
-            // the dark primary is T80, or a paler colour above the lamp when T80 is too close.
+            // Primary: the light primary is the accent (T40, hue 8° lower for seeds at 55°-110°).
+            // The dark primary is T80, or a paler colour above the lamp when T80 is too close.
             text("primary", MDC::primary, SchemeTally::primaryFamily, SchemeTally::primaryTone),
             text("on_primary", MDC::onPrimary, PRIMARY, 100, 20),
             fixed("primary_container", MDC::primaryContainer, SchemeTally::primaryContainer),
@@ -105,7 +105,7 @@ public final class TallyDynamicColors {
             text("on_primary_fixed", MDC::onPrimaryFixed, PRIMARY, 10, 10),
             text("on_primary_fixed_variant", MDC::onPrimaryFixedVariant, PRIMARY, 30, 30),
 
-            // Secondary and tertiary; their containers are quiet (near grey).
+            // Secondary and tertiary. Their containers are quiet (near grey).
             text("secondary", MDC::secondary, SECONDARY, 40, 80),
             text("on_secondary", MDC::onSecondary, SECONDARY, 100, 20),
             fixed("secondary_container", MDC::secondaryContainer,
@@ -168,7 +168,7 @@ public final class TallyDynamicColors {
 
     /**
      * A role: in a {@link SchemeTally} its colour is {@code color}'s, with no background, contrast
-     * curve or tone pair left for libmonet to apply; in any other scheme it is {@code stock}, the
+     * curve or tone pair left for libmonet to apply. In any other scheme it is {@code stock}, the
      * libmonet role. HCT gives the colour back exactly from its own hue, chroma and tone.
      */
     private record Role(Supplier<DynamicColor> stock, Function<SchemeTally, Hct> color) {
@@ -211,7 +211,7 @@ public final class TallyDynamicColors {
     }
 
     /**
-     * A text or outline role's colour: its Tally colour, {@code palette} at {@code tone}; or, where
+     * A text or outline role's colour: its Tally colour, {@code palette} at {@code tone}. Or, where
      * that gives less than the ratio libmonet's role {@code stock} asks for at this contrast level
      * against what it is drawn on, the colour of {@code palette} just far enough away from it.
      */

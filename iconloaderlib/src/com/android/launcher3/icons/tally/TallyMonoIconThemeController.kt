@@ -35,7 +35,7 @@ import java.nio.ByteBuffer
 /**
  * DiamaneOS Tally's Minimal icon style: stock's forced monochrome icons
  * ([MonoIconThemeController]), with the glyph of a legacy icon the right way round, so its key is
- * dark with a light glyph like every other key. Launcher's Minimal style is this controller; the
+ * dark with a light glyph like every other key. Launcher's Minimal style is this controller. The
  * Colour style ([TallyColourIconThemeController]) takes its glyphs from it too, in Launcher and in
  * SystemUI.
  *

@@ -24,8 +24,8 @@ import java.util.function.Supplier;
  * The DiamaneOS palette style of the Tally design language.
  *
  * <p>Every system theme style (the styles Wallpaper &amp; style and the theme service can set)
- * builds this scheme, so the palette applies whatever style is chosen; see {@link #appliesTo}.
- * The quiet styles, Monochrome and Spritz, take the prototype's near-grey palettes; see
+ * builds this scheme, so the palette applies whatever style is chosen. See {@link #appliesTo}.
+ * The quiet styles, Monochrome and Spritz, take the prototype's near-grey palettes. See
  * {@link #isQuiet}. Its roles, and how they follow the contrast level, are in
  * {@link TallyDynamicColors}.
  *
@@ -50,7 +50,7 @@ public class SchemeTally extends DynamicScheme {
 
     /**
      * The Tally palettes, and two colour families of the primary role that are not palettes. Each
-     * is a fixed OKLCH hue and chroma; a role's colour at any tone comes from its family.
+     * is a fixed OKLCH hue and chroma. A role's colour at any tone comes from its family.
      */
     enum Palette {
         PRIMARY, SECONDARY, TERTIARY, NEUTRAL, NEUTRAL_VARIANT, ERROR,
@@ -180,7 +180,7 @@ public class SchemeTally extends DynamicScheme {
     }
 
     /**
-     * The primary's family: the accent in light; in dark the primary palette, or its paler family
+     * The primary's family: the accent in light. In dark the primary palette, or its paler family
      * when T80 is too close to the lamp.
      */
     Palette primaryFamily() {
@@ -189,7 +189,7 @@ public class SchemeTally extends DynamicScheme {
     }
 
     /**
-     * The primary's tone: T40 in light; in dark T80, or six tones above the lamp when T80 is fewer
+     * The primary's tone: T40 in light. In dark T80, or six tones above the lamp when T80 is fewer
      * than five tones from it, so the dark app primary is never the lamp.
      */
     double primaryTone() {
@@ -249,7 +249,7 @@ public class SchemeTally extends DynamicScheme {
         return d > 180 ? 360 - d : d;
     }
 
-    /** The prototype's palette style for one seed; the same for light and dark. */
+    /** The prototype's palette style for one seed. The same for light and dark. */
     static final class Style {
         final double mLampTone;
         final int mLamp;
@@ -268,7 +268,7 @@ public class SchemeTally extends DynamicScheme {
         private final double[] mHctNeutralVariant;
         private final double[] mHctError;
 
-        /** The palette style for {@code seed}; {@code quiet} for Monochrome and Spritz. */
+        /** The palette style for {@code seed}, with {@code quiet} for Monochrome and Spritz. */
         Style(int seed, boolean quiet) {
             double[] lch = Oklch.fromArgb(seed);
             double seedChroma = lch[1];

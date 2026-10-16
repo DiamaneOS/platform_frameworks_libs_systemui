@@ -28,7 +28,7 @@ import androidx.annotation.ColorInt
  *
  * The table is the Tally tokens' (`tally_app_key_packages`, `tally_app_key_plates` and
  * `tally_app_key_glyphs`, three arrays in the same order), which Launcher and SystemUI link and
- * read from their own resources with [load]; this library does not link the tokens.
+ * read from their own resources with [load]. This library does not link the tokens.
  */
 class TallyAppKeys(private val keys: Map<String, Key>) {
 

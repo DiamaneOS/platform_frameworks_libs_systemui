@@ -52,7 +52,7 @@ import java.util.stream.Collectors;
  */
 @Deprecated
 public class ColorScheme {
-    /** Google blue, AOSP's fallback seed; monet itself now falls back to {@link #SODIUM}. */
+    /** Google blue, AOSP's fallback seed. DiamaneOS's monet falls back to {@link #SODIUM}. */
     public static final int GOOGLE_BLUE = 0xFF1b6ef3;
     /**
      * DiamaneOS: the seed monet falls back to when the wallpaper gives no usable colour (a
@@ -108,7 +108,7 @@ public class ColorScheme {
                                     : seed));
         }).toList();
 
-        // DiamaneOS: every system theme style builds the Tally palette style; the stock schemes
+        // DiamaneOS: every system theme style builds the Tally palette style. The stock schemes
         // below remain for CONTENT and the clock styles.
         mMaterialScheme = SchemeTally.appliesTo(style)
                 ? new SchemeTally(seedHcts, style, isDark, contrastLevel, platform)
@@ -149,7 +149,7 @@ public class ColorScheme {
         mError = palette(mMaterialScheme.errorPalette, "error");
     }
 
-    /** A palette of shades; the Tally palette style's are its palette stops. */
+    /** A palette of shades. The Tally palette style's are its palette stops. */
     private TonalPalette palette(
             com.google.ux.material.libmonet.palettes.TonalPalette materialPalette, String name) {
         return mMaterialScheme instanceof SchemeTally tally
