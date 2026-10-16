@@ -42,8 +42,8 @@ import java.nio.ByteBuffer
  * Launcher makes a legacy (non-adaptive) icon adaptive by setting it on a white plate
  * (BaseIconFactory.wrapToAdaptiveIcon). Such an icon has no monochrome layer, so the style
  * generates one (MonochromeIconFactory): it draws the whole icon and takes each pixel's brightness
- * as ink. The white plate, the brightest part, became solid ink and the app's own picture a darker
- * hole in it, so the key came out light with a dark glyph (SIM Toolkit's, for example). Here the
+ * as ink. The white plate, the brightest part, becomes solid ink and the app's own picture a darker
+ * hole in it, so the key comes out light with a dark glyph (SIM Toolkit's, for example). Here the
  * glyph comes from the picture alone, as the plate is Launcher's and not part of the app's icon. An
  * adaptive icon of the same make (a plain white background behind an inset foreground, and no
  * monochrome layer) is treated alike, which turns its glyph the right way round too.
@@ -51,8 +51,8 @@ import java.nio.ByteBuffer
  * A picture drawn dark on a plain light plate gives little or no ink by its brightness, so its
  * shape is taken as the glyph instead, as the monochrome layer the app did not draw
  * ([glyphOnLightPlate]). Material's shortcut icons are made so (Clock's "Create new alarm" is a
- * black glyph on #F5F5F5), and they came out light with a dark glyph in an app's long-press menu,
- * among dark keys. If a picture on a white plate gives no ink either way, the stock glyph stays.
+ * black glyph on #F5F5F5), and by brightness they come out light with a dark glyph in an app's
+ * long-press menu, among dark keys. If a picture on a white plate gives no ink either way, the stock glyph stays.
  */
 class TallyMonoIconThemeController(
     private val base: IconThemeController = MonoIconThemeController(shouldForceThemeIcon = true)
