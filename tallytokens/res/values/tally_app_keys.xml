@@ -55,7 +55,7 @@
         <item>com.android.settings</item>
         <item>app.vanadium.browser</item>
         <item>app.grapheneos.apps</item>
-        <item>app.attestation.auditor</item>
+        <item>de.diamaneos.auditor</item>
         <item>app.grapheneos.pdfviewer</item>
         <item>com.android.stk</item>
     </string-array>
