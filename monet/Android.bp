@@ -26,5 +26,6 @@ java_library {
     ],
     srcs: [
         "src/**/*.java",
+        ":monet_tally_srcs",
     ],
 }
